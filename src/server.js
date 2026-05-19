@@ -121,6 +121,31 @@ const connectDB = async () => {
     console.log("   The API will continue running but database features won't work.");
     console.log("   To fix: Set MONGODB_URI in your environment variables.");
     const mongoose = require('mongoose');
+    const mongoose = require('mongoose');
+
+// 1. Fetch the URI from Render's environment variables
+const dbURI = process.env.MONGODB_URI;
+
+// 2. Safe Debugging: Check if the variable even exists
+if (!dbURI) {
+  console.error("❌ DEBUG ERROR: process.env.MONGODB_URI is completely UNDEFINED on Render!");
+} else {
+  // Hide the password so it stays secure in public logs
+  // This replaces everything between the ":" and the "@" with "****"
+  const sanitizedUri = dbURI.replace(/:([^@]+)@/, ':****@');
+  console.log("🔌 DEBUG INFO: Render is attempting to connect using URI:", sanitizedUri);
+}
+
+// 3. Attempt the actual connection
+mongoose.connect(dbURI)
+  .then(() => {
+    console.log('✅ SUCCESS: Safely connected to MongoDB Atlas.');
+  })
+  .catch((err) => {
+    console.error('❌ MONGODB CONNECTION ERROR DETAILS:');
+    console.error('Error Code:', err.code);
+    console.error('Error Message:', err.message);
+  });
 }
 
 // 3. Attempt the actual connection
