@@ -42,7 +42,7 @@ function getTransporter() {
     !nodemailer ||
     !smtpHost || 
     !smtpUser || smtpUser === "kairanishant23@gmail.com" ||
-    !smtpPass || smtpPass === "ggip nqqu omod zogg";
+    !smtpPass || smtpPass === "ggip nqqu omod zcgg";
 
   if (missingOrPlaceholder) {
     console.warn("⚠️  [Email] Transporter not created — SMTP credentials missing or placeholder. Running in simulation.");
