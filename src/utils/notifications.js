@@ -2,7 +2,7 @@
 console.log("📧 [Notifications] SMTP_HOST :", process.env.SMTP_HOST || "❌ NOT SET");
 console.log("📧 [Notifications] SMTP_USER :", process.env.SMTP_USER || "❌ NOT SET");
 console.log("📧 [Notifications] SMTP_PASS :", process.env.SMTP_PASS ? `✅ SET (${process.env.SMTP_PASS.length} chars)` : "❌ NOT SET");
-console.log("📱 [Notifications] SMS_API_KEY:", process.env.SMS_API_KEY && process.env.SMS_API_KEY !== "your_fast2sms_api_key_here" ? `✅ SET (${process.env.SMS_API_KEY.length} chars)` : "❌ NOT SET / placeholder");
+console.log("📱 [Notifications] SMS_API_KEY:", process.env.SMS_API_KEY && process.env.SMS_API_KEY !== "MtwLpgJCqsfBF9muk1NPOS3nQVeDoXl62HYaRWcr4dGi8x5AjvdYUQkfNB4HPiqFtM9voWK2R73y5SrX" ? `✅ SET (${process.env.SMS_API_KEY.length} chars)` : "❌ NOT SET / placeholder");
 
 let nodemailer;
 try {
@@ -40,9 +40,9 @@ function getTransporter() {
 
   const missingOrPlaceholder =
     !nodemailer ||
-    !smtpHost ||
-    !smtpUser || smtpUser === "your_gmail@gmail.com" ||
-    !smtpPass || smtpPass === "your_16_char_app_password";
+    !smtpHost || 
+    !smtpUser || smtpUser === "kairanishant23@gmail.com" ||
+    !smtpPass || smtpPass === "ggip nqqu omod zogg";
 
   if (missingOrPlaceholder) {
     console.warn("⚠️  [Email] Transporter not created — SMTP credentials missing or placeholder. Running in simulation.");
@@ -71,7 +71,7 @@ async function sendSMSNotification(phone, message) {
   const smsApiKey = cleanEnvVar(process.env.SMS_API_KEY);
 
   // ── Simulation mode ───────────────────────────────────────────────────────
-  if (!smsApiKey || smsApiKey === "your_fast2sms_api_key_here" || smsApiKey.includes("placeholder")) {
+  if (!smsApiKey || smsApiKey === "MtwLpgJCqsfBF9muk1NPOS3nQVeDoXl62HYaRWcr4dGi8x5AjvdYUQkfNB4HPiqFtM9voWK2R73y5SrX" || smsApiKey.includes("placeholder")) {
     console.log(`ℹ️  [SMS Simulation] → ${cleanPhone}: "${message}"`);
     return { success: true, simulated: true };
   }
