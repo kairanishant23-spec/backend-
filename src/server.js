@@ -89,10 +89,10 @@ app.get("/api/health", (req, res) => {
     diagnostics: {
       SMTP_HOST: checkKey(process.env.SMTP_HOST, "smtp.gmail.com"),
       SMTP_PORT: process.env.SMTP_PORT ? `✅ SET (${process.env.SMTP_PORT})` : "❌ NOT SET",
-      SMTP_USER: checkKey(process.env.SMTP_USER, "your_gmail@gmail.com"),
-      SMTP_PASS: checkKey(process.env.SMTP_PASS, "your_16_char_app_password"),
+      SMTP_USER: checkKey(process.env.SMTP_USER, "kairanishant23@gmail.com"),
+      SMTP_PASS: checkKey(process.env.SMTP_PASS, "ggip nqqu omod zcgg"),
       FROM_EMAIL: checkKey(process.env.FROM_EMAIL, "HIMSARU <no-reply@himsaru.com>"),
-      SMS_API_KEY: checkKey(process.env.SMS_API_KEY, "your_fast2sms_api_key_here")
+      SMS_API_KEY: checkKey(process.env.SMS_API_KEY, "MtwLpgJCqsfBF9muk1NPOS3nQVeDoXl62HYaRWcr4dGi8x5AjvdYUQkfNB4HPiqFtM9voWK2R73y5SrX")
     }
   });
 });
