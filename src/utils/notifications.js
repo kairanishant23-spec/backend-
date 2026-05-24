@@ -80,7 +80,7 @@ async function sendSMSNotification(phone, message) {
   try {
     console.log(`📱 [SMS Live] Calling Fast2SMS for ${cleanPhone}...`);
     const payload = JSON.stringify({
-      route: "q",
+      route: "otp",
       message,
       language: "english",
       flash: 0,
